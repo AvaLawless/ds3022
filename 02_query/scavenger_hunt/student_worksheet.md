@@ -34,6 +34,7 @@ Query the full `suspects` table. One row shouldn't be there at all —
 someone on this list no longer has legitimate reason to hold a badge.
 Identify who, and why.
 
+Ilya Petrov
 ---
 
 ### Step 3 — Clear the red herring (DELETE)
