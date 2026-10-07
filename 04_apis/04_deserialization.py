@@ -4,7 +4,7 @@ import httpx
 
 
 # set your GH token before running
-TOKEN = os.environ["GITHUB_TOKEN"]
+TOKEN = os.environ["GH_PAT"]
 HEADERS = {"Authorization": f"Bearer {TOKEN}"}
 REPO = "uvasds-systems/ds3022"
 URL = f"https://api.github.com/repos/{REPO}/commits/HEAD"

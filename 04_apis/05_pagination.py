@@ -8,7 +8,7 @@ MAX_PAGES = 5              # stop early so we don't page through 50,000 commits
 
 
 # set your GH token before running
-TOKEN = os.environ["GITHUB_TOKEN"]
+TOKEN = os.environ["GH_PAT"]
 HEADERS = {"Authorization": f"Bearer {TOKEN}"}
 URL = f"https://api.github.com/repos/{REPO}/commits"
 
