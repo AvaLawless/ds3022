@@ -26,6 +26,7 @@ tornado = "*"
 requests-sse = "*"
 redis = "*"
 streamlit = "*"
+websockets = "<17,>=15"
 
 [dev-packages]
 
