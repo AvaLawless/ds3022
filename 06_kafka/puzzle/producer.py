@@ -24,9 +24,9 @@ def produce_messages():
             # Each loop blocks until the next message arrives; ends when the server closes
             for raw in ws:
                 value = json.loads(raw)
-                msg = topic.serialize(key=value["id"], value=value)
-                producer.produce(topic=topic.name, key=msg.key, value=msg.value)
-                print(value)
+                # do
+                # things
+                # here
         print(f"Round complete; messages produced to '{TOPIC}'")
     except Exception as e:
         print(f"Error: {e}")
