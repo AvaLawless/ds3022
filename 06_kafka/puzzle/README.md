@@ -5,8 +5,8 @@ Your job is to capture every piece, route it through Kafka, and put the phrase b
 
 ## How the server behaves
 
-- Connect to `ws://127.0.0.1:8765`. (Use `ws` since there is no encryption that `wss` uses.)
-- About **30 seconds** after you connect, the whole phrase arrives in a quick burst.
+- The puzzle container publishes a data stream on `ws://127.0.0.1:8765`. (Use `ws` since there is no encryption that `wss` uses.)
+- After about **30 seconds**, a fragmented phrase arrives in a quick burst of discrete messages.
 - Each message is one character of the phrase, **spaces included**, sent as JSON:
 
   ```json
