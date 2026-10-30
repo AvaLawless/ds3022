@@ -1,9 +1,9 @@
 # Kafka Puzzle: Reassemble the Phrase
 
-A WebSocket server is broadcasting a secret phrase, one character at a time, **out of order**.
+A local WebSocket server is broadcasting a secret phrase, one character at a time, **out of order**.
 Your job is to capture every piece, route it through Kafka, and put the phrase back together.
 
-## How the server behaves
+## The Data Stream
 
 - The puzzle container publishes a data stream on `ws://127.0.0.1:8765`. (Use `ws` since there is no encryption that `wss` uses.)
 - After about **30 seconds**, a fragmented phrase arrives in a quick burst of discrete messages.
@@ -21,9 +21,7 @@ Your job is to capture every piece, route it through Kafka, and put the phrase b
   | `order_no` | The character's position in the phrase, starting at 1 |
   | `total`    | Number of characters in the phrase                   |
 
-- The server sends the full phrase **once** (one **cycle**), closes the connection, and the
-  container exits. If you disconnect before the cycle finishes, reconnect to get a fresh
-  cycle with a new `cycle_id` and a new random order.
+- The server sends the full phrase **once** (one **cycle**), closes the connection, and the container exits. If you disconnect before the cycle finishes, reconnect to get a fresh cycle with a new `cycle_id` and a new random order.
 
 ## Setup
 
@@ -37,12 +35,12 @@ Your job is to capture every piece, route it through Kafka, and put the phrase b
    ```bash
    docker run -d --rm --name puzzle -p 8765:8765 ghcr.io/nmagee/ds3022-puzzle:latest
    ```
-   The container exits and removes itself after one round. To run another round, first
+   The container runs, then exits and removes itself after one round. To run another round, first
    **delete the `puzzle` topic** (Kafka UI → Topics → `puzzle` → Delete) so it holds only one
    round, then run the same `docker run` command again.
 
 3. Activate the project's virtual environment from the repo root (`pipenv shell` or `uv`).
-   You'll need `quixstreams` and `websockets` (both already in the Pipfile).
+   You'll need `quixstreams` and `websockets` (both already in the Pipfile) and run your `producer.py` when it is ready to receive data.
 
 ## Your tasks
 
