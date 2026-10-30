@@ -3,6 +3,12 @@
 A local WebSocket server is broadcasting a secret phrase, one character at a time, **out of order**.
 Your job is to capture every piece, route it through Kafka, and put the phrase back together.
 
+> NOTE: For this exercise, be sure you have the `websockets` package installed using the method for your virtual environment:
+>
+> - `pipenv install "webswebsockets>=15,<17"`
+> - `uv add "websockets>=15,<17"`
+> - `pip install "websockets>=15,<17"`
+
 ## The Data Stream
 
 - The puzzle container publishes a data stream on `ws://127.0.0.1:8765`. (Use `ws` since there is no encryption that `wss` uses.)
